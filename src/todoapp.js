@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import 'bulma/css/bulma.css'
+import axios from 'axios'
 
 class Todoapp extends Component {
 
@@ -9,10 +10,23 @@ class Todoapp extends Component {
         super(props)
         this.state = {
             input: '',
-            todo: ['Reading book', 'Homework mobile', 'Eat a book'],
-            lable : '',
+            todo: [],
+            lable: '',
         }
     }
+
+    componentDidMount(){
+        this.getTodoList();
+    }
+
+    getTodoList() {
+        axios.get('https://todolist59160089.herokuapp.com/todo').
+        then(res => this.setState({
+            todo: res.data
+        }))
+
+    }
+
 
     onChande(value) {
         console.log(value.target.value)
@@ -38,16 +52,16 @@ class Todoapp extends Component {
 
     addTask() {
 
-        if(this.state.input !== ''){
+        if (this.state.input !== '') {
             this.setState({
-                todo : [...this.state.todo,this.state.input],
-                lable : '',
-                input:''
-                        })
+                todo: [...this.state.todo, this.state.input],
+                lable: '',
+                input: ''
+            })
 
-        }else{
+        } else {
             this.setState({
-                lable :"Input is empty"
+                lable: "Input is empty"
             })
             console.log("Input is empty")
         }
@@ -88,7 +102,7 @@ class Todoapp extends Component {
 
                         </div>
                         <label className="label">
-                        {this.state.lable}
+                            {this.state.lable}
                         </label>
 
 

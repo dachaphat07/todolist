@@ -1,0 +1,11 @@
+Open terminal 
+* Node -v = เช็คเวอร์ชั่น Node ต่ำว่า 6 ?
+* ลง Node v 8.12.0
+* npx create-react-app todo-list = สร้าง react
+* Cd todo-list
+* npm start = เปิด app
+* npm install bulma
+* เปิด vscose
+* สร้าง db lab
+* โหลด express https://github.com/ABChamp/express-todo
+* 
